@@ -83,6 +83,8 @@
   /* Warm dusty rose overlay for portraits */
   --overlay-amarillito: rgba(230, 160, 45, 0.92);
   /* Warm sunset amber/yellow overlay for Amarillito */
+  --overlay-home: rgba(142, 94, 82, 0.92);
+  /* Cozy warm terracotta/earth-brown overlay for HOME zine */
 }
 
 /* --- Base & Reset Rules --- */
@@ -621,6 +623,10 @@ body.hover-project .custom-cursor-follower {
 
 .project-card[data-project="amarillito"]:hover {
   background-color: var(--overlay-amarillito);
+}
+
+.project-card[data-project="home"]:hover {
+  background-color: var(--overlay-home);
 }
 
 .project-card:hover .card-placeholder {
