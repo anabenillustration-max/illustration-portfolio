@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Minimalist Illustration Portfolio</title>
+  <meta name="description" content="Biography, background details, and editorial client history of the illustrator. Inspired by Hayden Maynard.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Custom Cursor Elements -->
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-follower"></div>
+
+  <!-- Navigation Header -->
+  <header class="header container" id="nav-header">
+    <a href="index.html" class="logo" id="header-logo">
+      <span>Ana Ben</span><span class="logo-dot"></span>
+    </a>
+    <nav class="nav" id="header-nav">
+      <a href="index.html" class="nav-link" id="nav-portfolio">Portfolio</a>
+      <a href="about.html" class="nav-link active" id="nav-about">About</a>
+      <a href="contact.html" class="nav-link" id="nav-contact">Contact</a>
+      <a href="store.html" class="nav-link" id="nav-store">Store</a>
+    </nav>
+  </header>
+
+  <!-- About Layout -->
+  <main class="container" id="about-main">
+    <div class="about-layout" id="about-grid">
+
+      <!-- Portrait Image Frame -->
+      <div class="about-portrait-image-wrapper" id="portrait-frame" style="border-radius: 8px; border: 1px solid var(--border-color); overflow: hidden; background-color: var(--bg-secondary); height: 480px; width: 100%;">
+        <img src="assets/profile.webp" alt="Ana Ben Portrait" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+
+      <!-- Biography Section -->
+      <section class="about-bio" id="bio-section">
+        <h2 id="about-heading">I make visual narratives for editorial, commercial, and spatial environments.</h2>
+        <div class="bio-bilingual" style="display: flex; flex-direction: column; gap: 2rem; margin-bottom: 2rem;">
+          <!-- English Version -->
+          <div class="bio-english" style="border-left: 2px solid var(--accent-color); padding-left: 1.5rem;">
+            <p style="font-size: 1.05rem; line-height: 1.75; margin-bottom: 0; color: var(--text-primary);">
+              Ana Ben is a Mexican illustrator and comic artist. Her work fuses the personal with the fantastic through traditional and digital techniques. She has illustrated for publishers such as Penguin Random House and Uroboros, and in 2025 she was selected for two consecutive terms for the Graphic Novel Residency at the Casa del Autor in Zapopan. Her career includes international recognition, such as first place at the Łódź Comics Festival in Poland, alongside collaborations in film projects, collective exhibitions, and commemorative posters.
+            </p>
+          </div>
+
+          <!-- Spanish Version -->
+          <div class="bio-spanish" style="border-left: 2px solid var(--border-color); padding-left: 1.5rem;">
+            <p style="font-size: 1.05rem; line-height: 1.75; margin-bottom: 0; color: var(--text-secondary); font-style: normal;">
+              Ana Ben es ilustradora y artista de cómics mexicana. Su obra fusiona lo personal con lo fantástico a través de técnicas tradicionales y digitales. Ha ilustrado para editoriales como Penguin Random House y Uroboros, y en 2025 fue seleccionada en dos periodos consecutivos para la Residencia de Novela Gráfica en la Casa del Autor de Zapopan. Su trayectoria incluye reconocimientos internacionales, como el primer lugar en el Festival de Cómics de Łódź, Polonia, y colaboraciones en proyectos de cine, exposiciones colectivas y carteles conmemorativos.
+            </p>
+          </div>
+        </div>
+        
+        <div class="about-section-divider"></div>
+
+        <!-- Selected Clients Panel -->
+        <h3 class="about-clients-title" id="clients-heading">Selected Client Directory</h3>
+        <div class="clients-grid" id="clients-list">
+          <span class="client-item">The Washington Post</span>
+          <span class="client-item">The Globe & Mail</span>
+          <span class="client-item">Columbia Magazine</span>
+          <span class="client-item">Cottage Life Magazine</span>
+          <span class="client-item">Planadviser</span>
+          <span class="client-item">Skeleton Park Arts</span>
+          <span class="client-item">Eaton Schools</span>
+          <span class="client-item">Condovoice</span>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer container" id="page-footer">
+    <div class="footer-copyright" id="footer-text">
+      <span>&copy; 2026. All rights reserved.</span>
+    </div>
+    <div class="footer-socials" id="footer-links">
+      <a href="https://www.instagram.com/anabenillustration/" target="_blank" class="footer-social-link" id="link-instagram">Instagram</a>
+      <a href="https://anbenana.substack.com?utm_source=navbar&utm_medium=web" target="_blank" class="footer-social-link" id="link-substack">Substack</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

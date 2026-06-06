@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Lune et l'oiseau | L'étoile et l'oiseau | Minimalist Illustration Portfolio</title>
+  <meta name="description" content="Animated flipbooks published by Éditions FLBLB telling the delicate stories of the moon, the star, and the bird.">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <!-- Custom Cursor Elements -->
+  <div class="custom-cursor"></div>
+
+  <!-- Navigation Header -->
+  <header class="header container" id="nav-header">
+    <a href="../index.html" class="logo" id="header-logo">
+      <span>Ana Ben</span><span class="logo-dot"></span>
+    </a>
+    <nav class="nav" id="header-nav">
+      <a href="../index.html" class="nav-link active" id="nav-portfolio">Portfolio</a>
+      <a href="../about.html" class="nav-link" id="nav-about">About</a>
+      <a href="../contact.html" class="nav-link" id="nav-contact">Contact</a>
+      <a href="../store.html" class="nav-link" id="nav-store">Store</a>
+    </nav>
+  </header>
+
+  <!-- Project Content -->
+  <main class="container" id="project-main">
+    <a href="../index.html" class="back-btn" id="btn-back">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+      </svg>
+      <span>Back to Portfolio</span>
+    </a>
+
+    <div class="project-detail-layout" id="project-layout">
+      <!-- Left Column: Specs & Description -->
+      <section class="project-meta-panel" id="meta-panel">
+        <h1 class="project-title-large" id="project-title">La Lune et l'oiseau <br>L'étoile et l'oiseau</h1>
+        <p class="project-description" id="project-desc" style="margin-bottom: 2rem;">
+          The moon appears in the middle of the night, at first a thin crescent, then revealing itself in full. A bird flies to give it a kiss, but the moon has already disappeared.
+        </p>
+        <p class="project-description" id="project-desc-2" style="margin-bottom: 2.5rem;">
+          A bird sees a small star fall from the sky. Finding it on the ground, the bird decides to carry it back to its nest. Although the bird offers it worms, that is not what a star needs; once placed inside the nest, the star gently illuminates the home.
+        </p>
+        
+        <div class="project-specs" id="project-info" style="margin-bottom: 3rem;">
+          <div class="spec-item">
+            <span class="spec-label">Project Type</span>
+            <span class="spec-value">Flipbook Series</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Year</span>
+            <span class="spec-value">2025</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Medium</span>
+            <span class="spec-value">Offset Print</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Publisher</span>
+            <span class="spec-value">Éditions FLBLB</span>
+          </div>
+          <div class="spec-item" style="grid-column: span 2;">
+            <span class="spec-label">Publisher Catalogue</span>
+            <span class="spec-value"><a href="https://www.flblb.com/catalogue/la-lune-et-loiseau-letoile-et-loiseau/" target="_blank" style="text-decoration: underline; color: var(--accent-color);">Éditions FLBLB Catalogue Entry</a></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Visual Series Display -->
+      <section class="project-gallery-panel" id="gallery-panel" style="display: flex; flex-direction: column; gap: 3rem;">
+        
+        <!-- Printed Book Cover Photo (Cleaned and cropped) -->
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <div class="card-image-wrapper" style="border-radius: 8px; border: 1px solid var(--border-color); overflow: hidden; background-color: var(--bg-secondary);">
+            <img src="../assets/project-series/la_lune_et_loiseau_books.png" alt="La Lune et l'oiseau / L'étoile et l'oiseau Flipbooks" style="width: 100%; display: block;">
+          </div>
+          <div style="text-align: right; padding-right: 0.25rem;">
+            <span class="spec-label" style="font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase;">Printed Covers and Spine | Éditions FLBLB</span>
+          </div>
+        </div>
+
+        <!-- Flipbook 1 GIF -->
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <div class="card-image-wrapper" style="border-radius: 8px; border: 1px solid var(--border-color); overflow: hidden; background-color: var(--bg-secondary);">
+            <img src="../assets/project-series/la_lune_et_loiseau_1.gif" alt="La Lune et l'oiseau Animation" style="width: 100%; display: block;">
+          </div>
+          <div style="text-align: right; padding-right: 0.25rem;">
+            <span class="spec-label" style="font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase;">La Lune et l'oiseau flipbook animation</span>
+          </div>
+        </div>
+
+        <!-- Flipbook 2 GIF -->
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <div class="card-image-wrapper" style="border-radius: 8px; border: 1px solid var(--border-color); overflow: hidden; background-color: var(--bg-secondary);">
+            <img src="../assets/project-series/la_lune_et_loiseau_2.gif" alt="L'étoile et l'oiseau Animation" style="width: 100%; display: block;">
+          </div>
+          <div style="text-align: right; padding-right: 0.25rem;">
+            <span class="spec-label" style="font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase;">L'étoile et l'oiseau flipbook animation</span>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+    <!-- Project Footer Nav -->
+    <div class="project-footer-nav" id="footer-nav">
+      <div class="footer-nav-item prev">
+        <span class="spec-label">Previous Project</span>
+        <a href="saltillo-447.html" class="footer-nav-link">Saltillo 447</a>
+      </div>
+      <div class="footer-nav-item next">
+        <span class="spec-label">Next Project</span>
+        <a href="portraits.html" class="footer-nav-link">Portraits</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer container" id="page-footer">
+    <div class="footer-copyright" id="footer-text">
+      <span>&copy; 2026. All rights reserved.</span>
+    </div>
+    <div class="footer-socials" id="footer-links">
+      <a href="https://www.instagram.com/anabenillustration/" target="_blank" class="footer-social-link" id="link-instagram">Instagram</a>
+      <a href="https://anbenana.substack.com?utm_source=navbar&utm_medium=web" target="_blank" class="footer-social-link" id="link-substack">Substack</a>
+    </div>
+  </footer>
+
+  <script src="../app.js"></script>
+</body>
+</html>
