@@ -11,3 +11,9 @@ Desktop.ini
 *.njsproj
 *.sln
 *.swp
+
+# Local setup and helper scripts
+setup_github.ps1
+download_planetas.ps1
+inspect_planetas_magic.ps1
+
