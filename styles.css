@@ -425,12 +425,7 @@ body.hover-project .custom-cursor-follower {
   background-color: var(--bg-secondary);
 }
 
-/* Card sizes: Small (narrower, centered) and Large (spans 2 columns on desktop) */
-.project-card.size-small {
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-}
+/* Card sizes: Large (spans 2 columns on desktop) */
 
 @media (min-width: 769px) {
   .project-card.size-large {
