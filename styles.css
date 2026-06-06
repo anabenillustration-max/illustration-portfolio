@@ -429,7 +429,7 @@ body.hover-project .custom-cursor-follower {
 
 @media (min-width: 769px) {
   .project-card.size-large {
-    grid-column: 2 / span 2;
+    grid-column: span 2;
   }
 }
 
