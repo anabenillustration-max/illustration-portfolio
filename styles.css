@@ -425,30 +425,17 @@ body.hover-project .custom-cursor-follower {
   background-color: var(--bg-secondary);
 }
 
-/* Dynamic aspect ratios for organic staggered layout */
-.card-image-wrapper.ratio-standard {
-  aspect-ratio: 4 / 3;
-}
-.card-image-wrapper.ratio-tall {
-  aspect-ratio: 3 / 4;
-}
-.card-image-wrapper.ratio-square {
-  aspect-ratio: 1 / 1;
-}
-.card-image-wrapper.ratio-very-tall {
-  aspect-ratio: 2 / 3;
-}
-.card-image-wrapper.ratio-panoramic {
-  aspect-ratio: 16 / 10;
+/* Card sizes: Small (narrower, centered) and Large (spans 2 columns on desktop) */
+.project-card.size-small {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.card-image-wrapper.ratio-standard .project-image,
-.card-image-wrapper.ratio-tall .project-image,
-.card-image-wrapper.ratio-square .project-image,
-.card-image-wrapper.ratio-very-tall .project-image,
-.card-image-wrapper.ratio-panoramic .project-image {
-  height: 100%;
-  object-fit: cover;
+@media (min-width: 769px) {
+  .project-card.size-large {
+    grid-column: span 2;
+  }
 }
 
 .project-image {
