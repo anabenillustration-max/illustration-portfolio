@@ -1,22 +1,17 @@
 /* 
   =========================================
   Illustration Portfolio - Global Interactions
-  Handling custom cursor, grid filtering, form validation, and page events
+  Handling grid filtering, form validation, and page events
   =========================================
 */
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize Global Modules
-  initCustomCursor();
   initPortfolioFilters();
   initContactForm();
   initPageTransitions();
   initMasonryGrid();
 });
-
-function initCustomCursor() {
-  // Custom cursor disabled as per user preference
-}
 
 /**
  * Portfolio Filtration Mechanics

@@ -168,50 +168,7 @@ a {
   transition: color var(--transition-fast);
 }
 
-/* --- Custom Cursor --- */
-.custom-cursor,
-.custom-cursor-follower {
-  display: none !important;
-}
 
-
-/* Hover States for Cursor */
-body.hover-link .custom-cursor {
-  transform: translate(-50%, -50%) scale(1.5);
-  background-color: var(--text-light);
-}
-
-body.hover-link .custom-cursor-follower {
-  width: 60px;
-  height: 60px;
-  border-color: var(--text-light);
-  transform: translate(-50%, -50%) scale(1.2);
-}
-
-body.hover-project .custom-cursor {
-  opacity: 0;
-}
-
-body.hover-project .custom-cursor-follower {
-  width: 80px;
-  height: 80px;
-  background-color: rgba(26, 26, 26, 0.95);
-  border-color: rgba(26, 26, 26, 0.95);
-  color: var(--text-light);
-}
-
-/* Hide cursor on touch devices */
-@media (hover: none) and (pointer: coarse) {
-
-  .custom-cursor,
-  .custom-cursor-follower {
-    display: none !important;
-  }
-
-  body {
-    cursor: auto !important;
-  }
-}
 
 /* --- Layout Structure --- */
 .container {
