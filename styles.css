@@ -405,7 +405,6 @@ body.hover-project .custom-cursor-follower {
   align-self: start;
   display: block;
   width: 100%;
-  margin-bottom: var(--column-gap);
   border-radius: 8px;
   overflow: hidden;
   position: relative;
@@ -432,9 +431,6 @@ body.hover-project .custom-cursor-follower {
 @media (min-width: 769px) {
   .project-card.size-large {
     grid-column: span 2;
-  }
-  .project-card[data-project="sad-poems"] {
-    grid-column: 2 / span 2;
   }
 }
 
