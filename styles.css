@@ -39,7 +39,7 @@
 
   /* Spatial & Layout Variables */
   --max-width: 1440px;
-  --header-height: 100px;
+  --header-height: 180px;
   --column-gap: 2.5rem;
 
   /* Transitions */
@@ -192,7 +192,8 @@ a {
   padding: 4rem 4rem 3rem 4rem;
   border-bottom: 1px solid var(--border-color);
   background-color: var(--bg-primary);
-  position: relative;
+  position: sticky;
+  top: 0;
   width: 100%;
   z-index: 100;
   gap: 1.5rem;
@@ -645,9 +646,14 @@ a {
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-secondary);
-  margin-top: 3rem;
-  margin-bottom: 2rem;
   transition: color var(--transition-fast), transform var(--transition-fast);
+  position: sticky;
+  top: var(--header-height);
+  z-index: 90;
+  background-color: var(--bg-primary);
+  width: calc(50% - 2rem);
+  padding: 1.5rem 0;
+  margin: 0;
 }
 
 .back-btn:hover {
@@ -663,15 +669,40 @@ a {
 }
 
 @media (max-width: 900px) {
+  :root {
+    --header-height: 150px;
+  }
+
   .project-detail-layout {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .back-btn {
+    position: sticky;
+    top: var(--header-height);
+    width: 100%;
+    margin: 0;
+    padding: 1.25rem 0;
+    background-color: var(--bg-primary);
+    z-index: 90;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .project-meta-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 120px;
   }
 }
 
 .project-meta-panel {
   position: sticky;
-  top: 140px;
+  top: calc(var(--header-height) + 60px);
   height: fit-content;
 }
 
