@@ -913,6 +913,8 @@ body.hover-project .custom-cursor-follower {
   grid-template-columns: 0.8fr 1.2fr;
   gap: 5rem;
   padding: 4rem 0 6rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 @media (max-width: 900px) {
@@ -991,6 +993,8 @@ body.hover-project .custom-cursor-follower {
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
   padding: 4rem 0 6rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 @media (max-width: 900px) {
@@ -1140,6 +1144,11 @@ textarea.form-input {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+#store-main {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* --- Shop / Store Page --- */
