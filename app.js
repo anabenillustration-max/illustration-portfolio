@@ -200,6 +200,7 @@ function initPageTransitions() {
         e.preventDefault();
         
         // Trigger body fade animation out
+        document.body.style.animation = 'none';
         document.body.style.opacity = '0';
         document.body.style.transition = 'opacity 0.3s ease';
         
@@ -209,13 +210,6 @@ function initPageTransitions() {
       }
     });
   });
-  
-  // Fade in body on load
-  document.body.style.opacity = '0';
-  setTimeout(() => {
-    document.body.style.opacity = '1';
-    document.body.style.transition = 'opacity 0.4s ease';
-  }, 100);
 }
 
 /**
