@@ -433,6 +433,9 @@ body.hover-project .custom-cursor-follower {
   .project-card.size-large {
     grid-column: span 2;
   }
+  .project-card[data-project="sad-poems"] {
+    grid-column: 2 / span 2;
+  }
 }
 
 .project-image {
