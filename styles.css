@@ -379,7 +379,6 @@ body.hover-project .custom-cursor-follower {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 1px;
   grid-auto-flow: dense;
   column-gap: var(--column-gap);
   row-gap: 0;
@@ -438,6 +437,7 @@ body.hover-project .custom-cursor-follower {
 
 .project-image {
   width: 100%;
+  height: auto;
   display: block;
   transition: transform var(--transition-slow), opacity var(--transition-fast);
 }

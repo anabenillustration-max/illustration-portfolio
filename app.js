@@ -231,11 +231,15 @@ function initMasonryGrid() {
     const cards = grid.querySelectorAll('.project-card');
 
     if (isMobile) {
+      grid.style.gridAutoRows = '';
       cards.forEach(card => {
         card.style.gridRowEnd = '';
       });
       return;
     }
+
+    // Dynamically apply 1px rows for calculations only once JavaScript runs
+    grid.style.gridAutoRows = '1px';
 
     // Read the column gap dynamically from CSS root variables to ensure perfect alignment
     const rootStyle = getComputedStyle(document.documentElement);
