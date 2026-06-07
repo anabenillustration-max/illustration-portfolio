@@ -646,8 +646,8 @@ a {
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-secondary);
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
@@ -665,7 +665,7 @@ a {
 
 .project-meta-panel {
   position: sticky;
-  top: calc(var(--header-height) + 60px);
+  top: calc(var(--header-height) + 40px);
   height: fit-content;
 }
 
