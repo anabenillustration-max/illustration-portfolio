@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Global Modules
   initPortfolioFilters();
   initContactForm();
-  initPageTransitions();
   initMasonryGrid();
 });
 
@@ -179,33 +178,7 @@ function initContactForm() {
   });
 }
 
-/**
- * Single-Page Fade Out Page Transition Effects
- * Ensures seamless navigation shifts.
- */
-function initPageTransitions() {
-  const transitionOverlays = document.querySelectorAll('a:not([target="_blank"]):not([href^="#"]):not(.social-item-link)');
-  
-  transitionOverlays.forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const destination = anchor.getAttribute('href');
-      
-      // If it's a valid local HTML link
-      if (destination && destination !== '#') {
-        e.preventDefault();
-        
-        // Trigger body fade animation out
-        document.body.style.animation = 'none';
-        document.body.style.opacity = '0';
-        document.body.style.transition = 'opacity 0.3s ease';
-        
-        setTimeout(() => {
-          window.location.href = destination;
-        }, 300);
-      }
-    });
-  });
-}
+
 
 /**
  * Modern CSS Grid Staggered Masonry Layout Engine
