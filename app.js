@@ -233,18 +233,16 @@ function initMasonryGrid() {
     if (isMobile) {
       grid.style.gridAutoRows = '';
       cards.forEach(card => {
-        card.style.gridRowEnd = '';
+        card.style.gridRow = '';
+        card.style.gridColumn = '';
       });
       return;
     }
 
-    // Dynamically apply 1px rows for calculations only once JavaScript runs
-    grid.style.gridAutoRows = '1px';
-
-    // Read the column gap dynamically from CSS root variables to ensure perfect alignment
+    // Read the column gap dynamically from CSS root variables
     const rootStyle = getComputedStyle(document.documentElement);
     const gapStr = rootStyle.getPropertyValue('--column-gap').trim();
-    let verticalGap = 40; // Fallback to 40px (2.5rem at 16px base font size)
+    let verticalGap = 40; // Fallback to 40px
     
     if (gapStr) {
       if (gapStr.endsWith('rem')) {
@@ -256,21 +254,85 @@ function initMasonryGrid() {
       }
     }
 
+    // 1. Reset inline styles so we can measure natural heights
+    grid.style.gridAutoRows = '';
     cards.forEach(card => {
-      // If card is filtered out, clear layout spans
+      card.style.gridRow = '';
+      card.style.gridColumn = '';
+    });
+
+    // Force browser reflow to get correct natural auto-layout heights
+    grid.offsetHeight;
+
+    // 2. Measure natural heights of all currently visible cards
+    const cardData = [];
+    cards.forEach(card => {
       if (card.style.display === 'none' || card.classList.contains('fade-out')) {
-        card.style.gridRowEnd = '';
         return;
       }
-
-      const img = card.querySelector('.project-image');
-      if (!img) return;
-
-      // Get natural client height of card (height of card content wrapper)
       const cardHeight = card.getBoundingClientRect().height;
+      cardData.push({
+        el: card,
+        height: cardHeight,
+        isLarge: card.classList.contains('size-large')
+      });
+    });
+
+    // 3. Set the grid back to 1px rows
+    grid.style.gridAutoRows = '1px';
+
+    // 4. Place cards explicitly by balancing column heights
+    const numCols = window.innerWidth <= 1100 ? 2 : 3;
+    const colHeights = Array(numCols).fill(1); // 1-indexed grid row starts
+
+    cardData.forEach(data => {
+      const card = data.el;
+      const cardHeight = Math.ceil(data.height);
+      const gapVal = Math.ceil(verticalGap);
       
-      // Since grid-auto-rows is 1px, the span is exactly the height + vertical gap in pixels
-      card.style.gridRowEnd = `span ${Math.ceil(cardHeight + verticalGap)}`;
+      if (data.isLarge && numCols >= 2) {
+        if (numCols === 2) {
+          // In 2-column layout, large card must span both columns 1 and 2
+          const startRow = Math.max(colHeights[0], colHeights[1]);
+          card.style.gridColumn = '1 / span 2';
+          card.style.gridRow = `${startRow} / span ${cardHeight}`;
+          
+          const newHeight = startRow + cardHeight + gapVal;
+          colHeights[0] = newHeight;
+          colHeights[1] = newHeight;
+        } else {
+          // In 3-column layout, decide whether to place in cols 1-2 or cols 2-3
+          const h12 = Math.max(colHeights[0], colHeights[1]);
+          const h23 = Math.max(colHeights[1], colHeights[2]);
+          
+          if (h12 <= h23) {
+            const startRow = h12;
+            card.style.gridColumn = '1 / span 2';
+            card.style.gridRow = `${startRow} / span ${cardHeight}`;
+            
+            const newHeight = startRow + cardHeight + gapVal;
+            colHeights[0] = newHeight;
+            colHeights[1] = newHeight;
+          } else {
+            const startRow = h23;
+            card.style.gridColumn = '2 / span 2';
+            card.style.gridRow = `${startRow} / span ${cardHeight}`;
+            
+            const newHeight = startRow + cardHeight + gapVal;
+            colHeights[1] = newHeight;
+            colHeights[2] = newHeight;
+          }
+        }
+      } else {
+        // 1-column card
+        const minCol = colHeights.indexOf(Math.min(...colHeights));
+        const startRow = colHeights[minCol];
+        
+        card.style.gridColumn = `${minCol + 1}`;
+        card.style.gridRow = `${startRow} / span ${cardHeight}`;
+        
+        colHeights[minCol] = startRow + cardHeight + gapVal;
+      }
     });
   }
 
@@ -284,7 +346,6 @@ function initMasonryGrid() {
   // Also bind to image load events inside the grid cards to trigger layout when loaded
   const images = grid.querySelectorAll('.project-image');
   images.forEach(img => {
-    // If the image is already loaded/cached
     if (img.complete) {
       resizeAllGridItems();
     } else {
