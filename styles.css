@@ -668,6 +668,12 @@ a {
   padding-bottom: 6rem;
 }
 
+.project-meta-panel {
+  position: sticky;
+  top: calc(var(--header-height) + 60px);
+  height: fit-content;
+}
+
 @media (max-width: 900px) {
   :root {
     --header-height: 150px;
@@ -698,12 +704,6 @@ a {
   :root {
     --header-height: 120px;
   }
-}
-
-.project-meta-panel {
-  position: sticky;
-  top: calc(var(--header-height) + 60px);
-  height: fit-content;
 }
 
 .project-title-large {
