@@ -235,7 +235,9 @@ function initMasonryGrid() {
       const img = card.querySelector('.project-image');
       if (!img) return;
 
-      const ratio = (img.naturalHeight / img.naturalWidth) || (img.height / img.width) || 1;
+      // Prefer the declared size so lazy images that haven't loaded yet are laid out correctly
+      const ratio = (img.getAttribute('height') / img.getAttribute('width')) ||
+        (img.naturalHeight / img.naturalWidth) || 1;
       // Cards have a 1px border on each side
       const heightFor = span => (colWidth * span + verticalGap * (span - 1) - 2) * ratio + 2;
       const wide = card.classList.contains('size-large') && colCount > 1;
