@@ -404,6 +404,12 @@ a {
   transition: transform var(--transition-slow), opacity var(--transition-fast);
 }
 
+/* Cards stretched by the masonry balancer fill their frame */
+.project-image.is-cropped {
+  height: 100%;
+  object-fit: cover;
+}
+
 .project-card:hover .project-image {
   transform: scale(1.04);
   filter: brightness(0.3) contrast(1.05);
