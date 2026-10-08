@@ -116,6 +116,19 @@ img[height] {
   height: auto;
 }
 
+/* Text for screen readers and search engines only */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Custom Selection Highlight */
 ::selection {
   background-color: var(--accent-soft);
@@ -938,6 +951,7 @@ a {
   justify-content: space-between;
 }
 
+.about-bio h1,
 .about-bio h2 {
   font-size: 2.2rem;
   margin-bottom: 2rem;
@@ -1006,6 +1020,7 @@ a {
   }
 }
 
+.contact-info-panel h1,
 .contact-info-panel h2 {
   font-size: 2.8rem;
   margin-bottom: 1.5rem;
@@ -1151,6 +1166,30 @@ textarea.form-input {
 #store-main {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+/* Coming-soon links on the store page */
+.store-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.store-links .submit-btn {
+  display: inline-block;
+  align-self: auto;
+}
+
+.store-links .store-link-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  box-shadow: inset 0 0 0 1px var(--text-primary);
+}
+
+.store-links .store-link-secondary:hover {
+  color: var(--text-light);
 }
 
 /* --- Shop / Store Page --- */
@@ -1338,10 +1377,12 @@ textarea.form-input {
   .page-title {
     font-size: 1.8rem;
   }
+  .about-bio h1,
   .about-bio h2 {
     font-size: 1.75rem;
     margin-bottom: 1.25rem;
   }
+  .contact-info-panel h1,
   .contact-info-panel h2 {
     font-size: 2rem;
   }
@@ -1355,9 +1396,11 @@ textarea.form-input {
     font-size: 1rem;
     line-height: 1.3;
   }
+  .about-bio h1,
   .about-bio h2 {
     font-size: 1.5rem;
   }
+  .contact-info-panel h1,
   .contact-info-panel h2 {
     font-size: 1.65rem;
   }

@@ -95,32 +95,40 @@ function initContactForm() {
     submitBtn.textContent = 'SENDING...';
     submitBtn.disabled = true;
 
-    // Perform a real AJAX submission to FormSubmit.co
-    fetch('https://formsubmit.co/ajax/anabenillustration@gmail.com', {
+    // Spam bots tick the hidden honeypot box; humans never see it
+    const botcheck = form.querySelector('[name="botcheck"]');
+
+    // Submit to Web3Forms (the access key is public by design and only allows sending to Ana)
+    fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
       body: JSON.stringify({
+        access_key: '35f48742-0868-475c-af3c-72307bc9fa6a',
+        subject: subject ? `Portfolio inquiry: ${subject}` : `New portfolio inquiry from ${name}`,
+        from_name: 'Ana Ben Portfolio',
         name: name,
         email: email,
-        _subject: subject || `New Portfolio Inquiry from ${name}`,
-        message: message
+        message: message,
+        botcheck: botcheck ? botcheck.checked : false
       })
     })
     .then(response => response.json())
     .then(data => {
       if (data.success === 'true' || data.success === true) {
-        // Create success banner
+        // Create success banner (visitor's name inserted as text, never as HTML)
         const successBanner = document.createElement('div');
         successBanner.className = 'success-banner';
         successBanner.innerHTML = `
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
-          <span>Thank you, ${name}! Your inquiry was sent successfully. I will get back to you shortly.</span>
+          <span></span>
         `;
+        successBanner.querySelector('span').textContent =
+          `Thank you, ${name}! Your inquiry was sent successfully. I will get back to you shortly.`;
 
         // Insert banner above form
         form.parentNode.insertBefore(successBanner, form);
@@ -143,13 +151,13 @@ function initContactForm() {
           setTimeout(() => successBanner.remove(), 500);
         }, 6000);
       } else {
-        throw new Error('FormSubmit did not report success');
+        throw new Error(data.message || 'Web3Forms did not report success');
       }
     })
     .catch(error => {
-      // Keep the visitor's text in the form and point them to direct email
+      // Keep the visitor's text in the form and point them to another way to reach Ana
       console.warn('Inquiry submission failed.', error);
-      alert('Sorry, your message could not be sent. Please try again, or email me directly at anabenillustration@gmail.com.');
+      alert('Sorry, your message could not be sent. Please try again in a moment, or send me a message on Instagram (@anabenillustration).');
     })
     .finally(() => {
       submitBtn.textContent = originalText;
