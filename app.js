@@ -135,7 +135,7 @@ function initContactForm() {
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
-          <span>Thank you, ${name}! Your inquiry was sent successfully. We will get back to you shortly.</span>
+          <span>Thank you, ${name}! Your inquiry was sent successfully. I will get back to you shortly.</span>
         `;
 
         // Insert banner above form
@@ -159,21 +159,17 @@ function initContactForm() {
           setTimeout(() => successBanner.remove(), 500);
         }, 6000);
       } else {
-        alert('Oops! Something went wrong while sending your inquiry. Please try again.');
+        throw new Error('FormSubmit did not report success');
       }
     })
     .catch(error => {
-      console.warn('AJAX submit failed or was blocked (likely due to local file:// CORS restrictions). Falling back to standard form submission...', error);
-      submitBtn.textContent = 'REDIRECTING...';
-      form.submit();
+      // Keep the visitor's text in the form and point them to direct email
+      console.warn('Inquiry submission failed.', error);
+      alert('Sorry, your message could not be sent. Please try again, or email me directly at anabenillustration@gmail.com.');
     })
     .finally(() => {
-      // Only reset button state if form wasn't submitted natively (which redirects)
-      setTimeout(() => {
-        if (submitBtn.textContent === 'REDIRECTING...') return;
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }, 1000);
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
     });
   });
 }
